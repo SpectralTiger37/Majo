@@ -1,0 +1,817 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#f5f5f5;
+
+    font-family:'Poppins',sans-serif;
+}
+
+/* ========================================= */
+/* TOPBAR */
+/* ========================================= */
+
+.classroom-topbar{
+
+    width:95%;
+
+    margin:30px auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+/* LEFT */
+
+.top-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+/* BACK */
+
+.back-btn{
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    background:white;
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+.back-btn:hover{
+
+    background:#ff4fa3;
+
+    color:white;
+}
+
+/* TITLE */
+
+.classroom-title h1{
+
+    font-size:2.5rem;
+
+    color:#222;
+}
+
+.classroom-title span{
+
+    color:#777;
+
+    font-size:1.1rem;
+}
+
+/* AVATAR */
+
+.teacher-avatar{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+
+    font-size:1.3rem;
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.class-hero{
+
+    width:95%;
+
+    height:260px;
+
+    margin:20px auto 30px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff9ac7
+    );
+
+    position:relative;
+}
+
+/* OVERLAY */
+
+.hero-overlay{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.4)
+    );
+
+    color:white;
+}
+
+.hero-overlay h2{
+
+    font-size:3rem;
+}
+
+.hero-overlay p{
+
+    margin-top:10px;
+
+    font-size:1.1rem;
+}
+
+/* ========================================= */
+/* NAV */
+/* ========================================= */
+
+.class-nav{
+
+    width:95%;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:40px;
+
+    border-bottom:1px solid #ddd;
+
+    padding-bottom:15px;
+}
+
+.class-nav a{
+
+    text-decoration:none;
+
+    color:#666;
+
+    padding-bottom:15px;
+
+    transition:.3s;
+}
+
+.class-nav a:hover{
+
+    color:#ff4fa3;
+}
+
+.class-nav .active{
+
+    color:#ff4fa3;
+
+    border-bottom:3px solid #ff4fa3;
+}
+
+/* ========================================= */
+/* CONTENT */
+/* ========================================= */
+
+.classroom-content{
+
+    width:95%;
+
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    280px 1fr;
+
+    gap:30px;
+
+    align-items:start;
+}
+
+/* ========================================= */
+/* LEFT */
+/* ========================================= */
+
+.left-panel{
+
+    width:100%;
+}
+
+/* MINI CARD */
+
+.mini-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+.mini-card h3{
+
+    margin-bottom:20px;
+
+    color:#222;
+}
+
+.mini-card p{
+
+    color:#666;
+
+    line-height:1.7;
+}
+
+/* ========================================= */
+/* RIGHT */
+/* ========================================= */
+
+.right-panel{
+
+    width:100%;
+}
+
+/* CREATE */
+
+.post-box{
+
+    margin-bottom:25px;
+}
+
+.post-box button{
+
+    padding:16px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#e8f0fe;
+
+    color:#3b82f6;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.post-box button:hover{
+
+    background:#d7e7ff;
+}
+
+/* ========================================= */
+/* POST */
+/* ========================================= */
+
+.post-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+/* TOP */
+
+.post-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+/* AVATAR */
+
+.avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+}
+
+/* CONTENT */
+
+.post-content{
+
+    margin-top:25px;
+}
+
+.post-content h2{
+
+    color:#222;
+
+    margin-bottom:15px;
+}
+
+.post-content p{
+
+    color:#666;
+
+    line-height:1.7;
+}
+
+/* TYPE */
+
+.post-type{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#ffe6f3;
+
+    color:#ff4fa3;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+/* IMAGE */
+
+.post-image{
+
+    width:100%;
+
+    margin-top:20px;
+
+    border-radius:20px;
+}
+
+/* LINK */
+
+.post-link{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:#3b82f6;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+/* ========================================= */
+/* EMPTY */
+/* ========================================= */
+
+.empty-state{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:60px;
+
+    text-align:center;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+.empty-state h2{
+
+    color:#222;
+}
+
+.empty-state p{
+
+    margin-top:10px;
+
+    color:#777;
+}
+
+/* ========================================= */
+/* FORM */
+/* ========================================= */
+
+.form-card{
+
+    width:100%;
+
+    max-width:700px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+/* INPUTS */
+
+.form-card input,
+.form-card textarea,
+.form-card select{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#f1f1f1;
+
+    margin-bottom:20px;
+
+    font-family:'Poppins';
+}
+
+/* TEXTAREA */
+
+.form-card textarea{
+
+    height:160px;
+
+    resize:none;
+}
+
+/* BUTTON */
+
+.form-card button{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:1000px){
+
+    .classroom-content{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .classroom-topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+    }
+
+    .top-left{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .hero-overlay h2{
+
+        font-size:2rem;
+    }
+
+    .class-nav{
+
+        overflow:auto;
+    }
+
+}
+
+/* ========================================= */
+/* SIDEBAR */
+/* ========================================= */
+
+.sidebar{
+
+    width:280px;
+
+    height:100vh;
+
+    background:white;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    border-right:1px solid #eee;
+
+    padding:40px 20px;
+}
+
+/* LOGO */
+
+.sidebar-logo{
+
+    font-size:2rem;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:#ff4fa3;
+
+    margin-bottom:50px;
+}
+
+/* MENU */
+
+.sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.sidebar-menu a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    transition:.3s;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu .active{
+
+    background:#e8f0fe;
+
+    color:#3b82f6;
+}
+
+/* ========================================= */
+/* MAIN */
+/* ========================================= */
+
+.main{
+
+    margin-left:280px;
+
+    padding:40px;
+}
+
+/* TOPBAR */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+}
+
+/* SUBTITLE */
+
+.subtitle{
+
+    margin-top:10px;
+
+    color:#777;
+}
+
+/* ========================================= */
+/* STATS */
+/* ========================================= */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+/* CARD */
+
+.stat-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+.stat-card h3{
+
+    color:#777;
+
+    margin-bottom:15px;
+}
+
+.stat-card p{
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    color:#222;
+}
+
+/* ========================================= */
+/* CLASSROOM GRID */
+/* ========================================= */
+
+.classroom-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.class-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+}
+
+/* HEADER */
+
+.class-header{
+
+    padding:35px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff9ac7
+    );
+
+    color:white;
+}
+
+.class-header h2{
+
+    font-size:2rem;
+}
+
+.class-header span{
+
+    display:block;
+
+    margin-top:15px;
+}
+
+/* BODY */
+
+.class-body{
+
+    padding:30px;
+}
+
+.class-body p{
+
+    color:#666;
+
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+.class-footer{
+
+    padding:30px;
+
+    border-top:1px solid #eee;
+}
+
+.class-footer button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    cursor:pointer;
+}
