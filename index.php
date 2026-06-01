@@ -20,10 +20,10 @@ href="assets/css/index.css">
 rel="stylesheet">
 
 </head>
-<body>
+<>
 
 <!-- ========================================= -->
-<!-- NAVBAR -->
+<!-- NAVBAR --> <!--Prueba-->
 <!-- ========================================= -->
 
 <nav class="navbar">
