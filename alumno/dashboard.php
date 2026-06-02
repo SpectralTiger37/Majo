@@ -73,6 +73,22 @@ $totalAsistencias = mysqli_num_rows(
             border: 4px solid #4f46e5;
         }
 
+        .foto-perfil {
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            display: block;
+
+            margin: auto;
+
+        }
+
         .sidebar h4 {
             margin-top: 15px;
             font-weight: 700;
@@ -96,9 +112,9 @@ $totalAsistencias = mysqli_num_rows(
         }
 
         .card-clase {
-            border-radius: 20px;
-            overflow: hidden;
-            transition: .3s;
+            border-top: 8px solid
+                <?= $c['color'] ?>
+            ;
         }
 
         .card-clase:hover {
@@ -127,16 +143,31 @@ $totalAsistencias = mysqli_num_rows(
         }
 
         .stat-box {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+
+            background: #f8fafc;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            margin-bottom: 8px;
+
         }
 
         .stat-box h3 {
+
+            margin: 0;
+
+            font-size: 1.2rem;
+
             color: #4f46e5;
-            font-weight: 700;
+
+        }
+
+        .stat-box small {
+
+            color: #6b7280;
+
         }
 
         .btn-menu {
@@ -153,10 +184,14 @@ $totalAsistencias = mysqli_num_rows(
 
         <center>
 
-            <img src="../uploads/default.png" width="100" height="100" style="
-border-radius:50%;
-object-fit:cover;
-">
+            <img class="foto-perfil" src="<?= !empty($usuario['foto'])
+
+                ? '../uploads/perfiles/' . $usuario['foto']
+
+                : 'https://ui-avatars.com/api/?name=' .
+                urlencode($usuario['nombre'])
+
+                ?>">
 
             <h4><?= $usuario['nombre'] ?></h4>
 
@@ -180,41 +215,29 @@ object-fit:cover;
                 <?= $xpActual ?> XP
             </small>
 
-            <div class="row mb-4">
+            <div class="mt-3">
 
-                <div class="col-md-4">
+                <div class="stat-box mb-2">
 
-                    <div class="stat-box">
+                    <h3><?= $totalClases ?></h3>
 
-                        <h3><?= $totalClases ?></h3>
-
-                        <p>Clases</p>
-
-                    </div>
+                    <small>Clases</small>
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="stat-box mb-2">
 
-                    <div class="stat-box">
+                    <h3><?= $totalEntregas ?></h3>
 
-                        <h3><?= $totalEntregas ?></h3>
-
-                        <p>Tareas Entregadas</p>
-
-                    </div>
+                    <small>Tareas</small>
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="stat-box">
 
-                    <div class="stat-box">
+                    <h3><?= $usuario['xp'] ?></h3>
 
-                        <h3><?= $usuario['xp'] ?></h3>
-
-                        <p>XP Total</p>
-
-                    </div>
+                    <small>XP</small>
 
                 </div>
 
@@ -231,16 +254,22 @@ object-fit:cover;
             📚 Mis Clases
         </a>
 
-        <a class="btn btn-light btn-menu">
+        <a class="btn btn-light btn-menu" href="calendario.php">
             📅 Calendario
         </a>
 
-        <a class="btn btn-light btn-menu">
+        <a class="btn btn-light btn-menu" href="logros.php">
             🏆 Logros
         </a>
 
-        <a class="btn btn-light btn-menu">
+        <a class="btn btn-light btn-menu" href="ranking.php">
             🥇 Ranking
+        </a>
+
+        <a class="btn btn-light btn-menu" href="perfil.php">
+
+            👤 Perfil
+
         </a>
 
         <a class="btn btn-danger btn-menu" href="../auth/logout.php">
@@ -275,8 +304,7 @@ object-fit:cover;
 
                             <div class="position-relative">
 
-                                <img src="https://picsum.photos/600/300?random=<?= $c['id'] ?>"
-                                    class="card-img-top portada">
+                                <img src="../uploads/clases/<?= $c['imagen'] ?>" class="card-img-top portada">
 
                                 <div class="overlay">
 

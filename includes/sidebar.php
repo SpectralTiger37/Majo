@@ -37,127 +37,130 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 ?>
 
 <style>
+    .sidebar {
 
-.sidebar{
+        position: fixed;
 
-    position:fixed;
+        left: 0;
+        top: 0;
 
-    left:0;
-    top:0;
+        width: 280px;
 
-    width:280px;
+        height: 100vh;
 
-    height:100vh;
+        overflow-y: auto;
 
-    overflow-y:auto;
+        background: white;
 
-    background:white;
+        padding: 25px;
 
-    padding:25px;
+        box-shadow:
+            0 0 25px rgba(0, 0, 0, .08);
 
-    box-shadow:
-    0 0 25px rgba(0,0,0,.08);
+    }
 
-}
+    .sidebar img {
 
-.sidebar img{
+        width: 100px !important;
 
-    width:100px !important;
+        height: 100px !important;
 
-    height:100px !important;
+        min-width: 100px !important;
 
-    min-width:100px !important;
+        min-height: 100px !important;
 
-    min-height:100px !important;
+        border-radius: 50% !important;
 
-    border-radius:50% !important;
+        object-fit: cover !important;
 
-    object-fit:cover !important;
+        display: block !important;
 
-    display:block !important;
+        margin: auto !important;
 
-    margin:auto !important;
+    }
 
-}
+    .sidebar h4 {
 
-.sidebar h4{
+        margin-top: 15px;
 
-    margin-top:15px;
+        font-weight: 700;
+    }
 
-    font-weight:700;
-}
+    .sidebar h6 {
 
-.sidebar h6{
+        color: #6b7280;
+    }
 
-    color:#6b7280;
-}
+    .xp-bar {
 
-.xp-bar{
+        height: 18px;
 
-    height:18px;
+        border-radius: 20px;
+    }
 
-    border-radius:20px;
-}
+    .progress-bar {
 
-.progress-bar{
+        background: #4f46e5;
+    }
 
-    background:#4f46e5;
-}
+    .btn-menu {
 
-.btn-menu{
+        display: block;
 
-    display:block;
+        width: 100%;
 
-    width:100%;
+        text-align: left;
 
-    text-align:left;
+        padding: 14px 18px;
 
-    padding:14px 18px;
+        margin-bottom: 10px;
 
-    margin-bottom:10px;
+        border-radius: 14px;
 
-    border-radius:14px;
+        text-decoration: none;
 
-    text-decoration:none;
+        color: #333;
 
-    color:#333;
+        transition: .3s;
 
-    transition:.3s;
+    }
 
-}
+    .btn-menu.active {
 
-.btn-menu.active{
+        background: #4f46e5;
 
-    background:#4f46e5;
+        color: white;
+    }
 
-    color:white;
-}
+    .btn-menu:hover {
 
-.btn-menu:hover{
+        background: #4f46e5;
 
-    background:#4f46e5;
+        color: white;
+    }
 
-    color:white;
-}
+    .sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
 
-.sidebar::-webkit-scrollbar{
-    width:6px;
-}
-
-.sidebar::-webkit-scrollbar-thumb{
-    background:#4f46e5;
-    border-radius:20px;
-}
-
+    .sidebar::-webkit-scrollbar-thumb {
+        background: #4f46e5;
+        border-radius: 20px;
+    }
 </style>
 
 <div class="sidebar">
 
     <center>
 
-        <img
-        src="../uploads/default.png"
-        alt="Perfil">
+        <img class="foto-perfil" src="<?= !empty($usuario['foto'])
+
+            ? '../uploads/perfiles/' . $usuario['foto']
+
+            : 'https://ui-avatars.com/api/?name=' .
+            urlencode($usuario['nombre'])
+
+            ?>">
 
         <h4>
 
@@ -175,9 +178,7 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 
     <div class="progress xp-bar mt-3">
 
-        <div
-        class="progress-bar"
-        style="width:<?= $porcentaje ?>%">
+        <div class="progress-bar" style="width:<?= $porcentaje ?>%">
         </div>
 
     </div>
@@ -196,49 +197,43 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 
     <hr>
 
-    <a
-    href="dashboard.php"
-    class="btn-menu <?= $paginaActual == 'dashboard.php' ? 'active' : '' ?>">
+    <a href="dashboard.php" class="btn-menu <?= $paginaActual == 'dashboard.php' ? 'active' : '' ?>">
 
         🏠 Dashboard
 
     </a>
 
-    <a
-    href="mis_clases.php"
-    class="btn-menu <?= $paginaActual == 'mis_clases.php' ? 'active' : '' ?>">
+    <a href="mis_clases.php" class="btn-menu <?= $paginaActual == 'mis_clases.php' ? 'active' : '' ?>">
 
         📚 Mis Clases
 
     </a>
 
-    <a
-    href="calendario.php"
-    class="btn-menu <?= $paginaActual == 'calendario.php' ? 'active' : '' ?>">
+    <a href="calendario.php" class="btn-menu <?= $paginaActual == 'calendario.php' ? 'active' : '' ?>">
 
         📅 Calendario
 
     </a>
 
-    <a
-    href="logros.php"
-    class="btn-menu <?= $paginaActual == 'logros.php' ? 'active' : '' ?>">
+    <a href="logros.php" class="btn-menu <?= $paginaActual == 'logros.php' ? 'active' : '' ?>">
 
         🏆 Logros
 
     </a>
 
-    <a
-    href="ranking.php"
-    class="btn-menu <?= $paginaActual == 'ranking.php' ? 'active' : '' ?>">
+    <a href="ranking.php" class="btn-menu <?= $paginaActual == 'ranking.php' ? 'active' : '' ?>">
 
         🥇 Ranking
 
     </a>
 
-    <a
-    href="../auth/logout.php"
-    class="btn-menu">
+    <a href="perfil.php" class="btn-menu <?= $paginaActual == 'perfil.php' ? 'active' : '' ?>">
+
+        👤 Perfil
+
+    </a>
+
+    <a href="../auth/logout.php" class="btn-menu">
 
         🚪 Cerrar sesión
 
