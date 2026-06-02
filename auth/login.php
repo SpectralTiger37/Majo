@@ -14,53 +14,55 @@ WHERE correo = ?";
 
 $stmt = $conexion->prepare($sql);
 
-$stmt->bind_param("s",$correo);
+$stmt->bind_param("s", $correo);
 
 $stmt->execute();
 
 $resultado = $stmt->get_result();
 
-if($resultado->num_rows > 0){
+if ($resultado->num_rows > 0) {
 
     $usuario = $resultado->fetch_assoc();
 
-    if(password_verify(
-        $password,
-        $usuario['password']
-    )){
+    if (
+        password_verify(
+            $password,
+            $usuario['password']
+        )
+    ) {
 
         $_SESSION['id'] =
-        $usuario['id'];
+            $usuario['id'];
 
         $_SESSION['nombre'] =
-        $usuario['nombre'];
+            $usuario['nombre'];
 
         $_SESSION['rol'] =
-        $usuario['rol'];
+            $usuario['rol'];
 
         /* REDIRECT */
 
-        if($usuario['rol'] == "maestro"){
+        if ($usuario['rol'] == "maestro") {
 
             header(
-            "Location: ../maestro/dashboard.php"
+                "Location: ../profesor/dashboard.php"
             );
 
-        }else{
+        } else {
 
             header(
-            "Location: ../alumno/dashboard.php"
+                "Location: ../alumno/dashboard.php"
             );
 
         }
 
-    }else{
+    } else {
 
         echo "Incorrect password";
 
     }
 
-}else{
+} else {
 
     echo "User not found";
 

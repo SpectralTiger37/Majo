@@ -2,6 +2,7 @@
 
 session_start();
 
+
 include '../includes/conexion.php';
 
 $id_usuario = $_SESSION['id'];
@@ -42,10 +43,6 @@ ORDER BY created_at DESC
         }
 
         .banner {
-
-            background: linear-gradient(135deg,
-                    #4f46e5,
-                    #6366f1);
 
             color: white;
 
@@ -133,7 +130,7 @@ ORDER BY created_at DESC
 
         </a>
 
-        <div class="banner">
+        <div class="banner" style="background: <?= $clase['color'] ?>;">
 
             <h1>
                 <?= $clase['nombre'] ?>
@@ -348,7 +345,7 @@ margin-right:15px;
 
                     <?php if (!empty($p['imagen'])): ?>
 
-                        <img src="../uploads/publicaciones/<?= $p['imagen'] ?>" class="img-fluid rounded mt-3">
+                        <img src="../profesor/uploads/publicaciones/<?= $p['imagen'] ?>" class="img-fluid rounded mt-3">
 
                     <?php endif; ?>
 

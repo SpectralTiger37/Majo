@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include '../includes/conexion.php';
 
 $id_usuario = $_SESSION['id'];
@@ -304,7 +305,7 @@ $totalAsistencias = mysqli_num_rows(
 
                             <div class="position-relative">
 
-                                <img src="../uploads/clases/<?= $c['imagen'] ?>" class="card-img-top portada">
+                                <img src="../profesor/uploads/clases/<?= $c['imagen'] ?>" class="card-img-top portada">
 
                                 <div class="overlay">
 
