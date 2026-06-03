@@ -136,7 +136,7 @@ foreach ($usuarios as $u) {
     <div class="content">
 
         <h1 class="titulo">
-            🥇 Ranking Spectral
+            🥇 Ranking EduNova
         </h1>
 
         <div class="mi-posicion">

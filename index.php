@@ -9,7 +9,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>SPECTRAL</title>
+<title>EduNova</title>
 
 <!-- CSS -->
 <link rel="stylesheet"
@@ -31,13 +31,13 @@ rel="stylesheet">
     <div class="logo-container">
 
         <h1 class="logo">
-            SPECTRAL
+            EduNova
         </h1>
 
         <div class="divider"></div>
 
         <span class="system-name">
-            Academic System
+            Sistema Academico
         </span>
 
     </div>
