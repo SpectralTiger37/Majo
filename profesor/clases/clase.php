@@ -143,8 +143,10 @@ $tab = $_GET['tab'] ?? 'publicaciones';
                 ✅ Asistencias
             </a>
 
-            <a href="?id=<?= $id_clase ?>&tab=calificaciones">
-                📊 Calificaciones
+            <a href="../reportes/excel.php?id=<?= $id_clase ?>" class="btn btn-success">
+
+                📊 Descargar Reporte
+
             </a>
 
         </div>
@@ -216,7 +218,7 @@ $tab = $_GET['tab'] ?? 'publicaciones';
                             </a>
 
                             <a href="../publicaciones/eliminar.php?id=<?= $p['id'] ?>" class="btn btn-danger btn-sm"
-                                onclick="return confirm('¿Eliminar publicación?')">
+                                onclick="return confirm('¿Eliminar esta publicación?')">
 
                                 🗑️ Eliminar
 
@@ -237,9 +239,82 @@ $tab = $_GET['tab'] ?? 'publicaciones';
 
                 <a href="../tareas/crear.php?id_clase=<?= $id_clase ?>" class="btn btn-primary mb-3">
 
-                    ➕ Nueva tarea
+                    📝 Nueva Tarea
 
                 </a>
+
+                <hr>
+
+                <?php
+
+                $tareas = mysqli_query(
+
+                    $conexion,
+
+                    "SELECT *
+     FROM tareas
+     WHERE clase_id = $id_clase
+     ORDER BY fecha_entrega ASC"
+
+                );
+
+                while ($t = mysqli_fetch_assoc($tareas)):
+
+                    ?>
+
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+
+                            <h5>
+
+                                <?= htmlspecialchars($t['titulo']) ?>
+
+                            </h5>
+
+                            <p>
+
+                                <?= nl2br(htmlspecialchars($t['descripcion'])) ?>
+
+                            </p>
+
+                            <p>
+
+                                ⭐ <?= $t['puntos'] ?> puntos
+
+                            </p>
+
+                            <p>
+
+                                📅 <?= $t['fecha_entrega'] ?>
+
+                            </p>
+
+                            <a href="../tareas/editar.php?id=<?= $t['id'] ?>" class="btn btn-warning">
+
+                                ✏️ Editar
+
+                            </a>
+
+                            <a href="../tareas/entregas.php?id=<?= $t['id'] ?>" class="btn btn-info">
+
+                                📂 Entregas
+
+                            </a>
+
+                            <a href="../tareas/eliminar.php?id=<?= $t['id'] ?>" class="btn btn-danger"
+                                onclick="return confirm('¿Eliminar esta tarea? Se borrarán también entregas y calificaciones.')">
+
+                                🗑️ Eliminar
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                <?php endwhile; ?>
+
 
                 <?php
 
@@ -257,13 +332,17 @@ $tab = $_GET['tab'] ?? 'publicaciones';
 
                 <h3>✅ Asistencias</h3>
 
-                <?php
+                <a href="../asistencias/pasar.php?id=<?= $id_clase ?>" class="btn btn-success">
 
-            } elseif ($tab == 'calificaciones') {
+                    ➕ Pasar asistencia
 
-                ?>
+                </a>
 
-                <h3>📊 Calificaciones</h3>
+                <a href="../asistencias/historial.php?id=<?= $id_clase ?>" class="btn btn-primary">
+
+                    📋 Historial
+
+                </a>
 
                 <?php
 

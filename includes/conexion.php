@@ -1,4 +1,4 @@
-<!-- includes/conexion.php -->
+
 
 <?php
 

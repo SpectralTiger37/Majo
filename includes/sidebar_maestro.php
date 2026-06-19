@@ -171,7 +171,7 @@ $rutaBase = "/Majo";
     class="foto-perfil"
 
     src="<?= !empty($usuario['foto'])
-? $rutaBase.'/profesor/uploads/perfiles/'.$usuario['foto']
+? $rutaBase.'/profesor/uploads/perfil/'.$usuario['foto']
 : 'https://ui-avatars.com/api/?name='.urlencode($usuario['nombre']).'&background=4f46e5&color=ffffff'
 ?>"
 
