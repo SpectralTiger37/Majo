@@ -1,4 +1,4 @@
-<!-- auth/signup.php -->
+
 
 <?php
 
@@ -13,7 +13,6 @@ $password = password_hash(
     PASSWORD_DEFAULT
 );
 
-/* VALIDAR SI EXISTE */
 
 $check = "SELECT * FROM usuarios
 WHERE correo = ?";
@@ -32,8 +31,6 @@ if($resultado->num_rows > 0){
 
 }
 
-/* INSERTAR ALUMNO */
-
 $sql = "INSERT INTO usuarios
 (nombre,correo,password,rol)
 VALUES (?,?,?,'alumno')";
@@ -49,7 +46,6 @@ $stmt->bind_param(
 
 $stmt->execute();
 
-/* LOGIN AUTOMÁTICO */
 
 session_start();
 
@@ -62,7 +58,6 @@ $nombre;
 $_SESSION['rol'] =
 "alumno";
 
-/* REDIRECT */
 
 header(
 "Location: ../alumno/dashboard.php"

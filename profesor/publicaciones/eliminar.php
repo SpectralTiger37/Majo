@@ -36,7 +36,6 @@ if (!$publicacion) {
 
 $id_clase = $publicacion['clase_id'];
 
-/* Eliminar imagen */
 
 if (!empty($publicacion['imagen'])) {
 
@@ -53,7 +52,6 @@ if (!empty($publicacion['imagen'])) {
 
 }
 
-/* Eliminar publicación */
 
 mysqli_query(
 
@@ -64,7 +62,6 @@ mysqli_query(
 
 );
 
-/* Regresar a la clase */
 
 header(
 

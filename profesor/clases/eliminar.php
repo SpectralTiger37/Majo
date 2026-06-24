@@ -15,8 +15,6 @@ include '../../includes/conexion.php';
 $id_clase = intval($_GET['id']);
 $id_maestro = $_SESSION['id'];
 
-/* Verificar que la clase pertenece al maestro */
-
 $clase = mysqli_fetch_assoc(
 
     mysqli_query(
@@ -38,8 +36,6 @@ if(!$clase){
 
 }
 
-/* Eliminar imagen */
-
 if(!empty($clase['imagen'])){
 
     $rutaImagen =
@@ -54,8 +50,6 @@ if(!empty($clase['imagen'])){
 
 }
 
-/* Eliminar alumnos inscritos */
-
 mysqli_query(
 
     $conexion,
@@ -64,8 +58,6 @@ mysqli_query(
      WHERE clase_id = $id_clase"
 
 );
-
-/* Eliminar asistencias */
 
 mysqli_query(
 
@@ -77,8 +69,6 @@ mysqli_query(
 );
 
 
-/* Eliminar tareas */
-
 mysqli_query(
 
     $conexion,
@@ -88,8 +78,6 @@ mysqli_query(
 
 );
 
-/* Eliminar publicaciones */
-
 mysqli_query(
 
     $conexion,
@@ -98,8 +86,6 @@ mysqli_query(
      WHERE clase_id = $id_clase"
 
 );
-
-/* Finalmente eliminar clase */
 
 mysqli_query(
 

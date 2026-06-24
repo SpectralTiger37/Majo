@@ -26,7 +26,6 @@ $grupo = mysqli_real_escape_string(
     $_POST['grupo']
 );
 
-/* Actualizar datos */
 
 mysqli_query(
 
@@ -41,7 +40,6 @@ mysqli_query(
 
 );
 
-/* Subir foto */
 
 if(
     isset($_FILES['foto']) &&
@@ -77,8 +75,6 @@ if(
     );
 
 }
-
-/* Volver */
 
 header("Location: perfil.php?ok=1");
 exit;

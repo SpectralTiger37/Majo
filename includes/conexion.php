@@ -7,10 +7,6 @@ $usuario = "root";
 $password = "";
 $baseDatos = "spectral";
 
-/* ========================================= */
-/* CONEXIÓN */
-/* ========================================= */
-
 $conexion = new mysqli(
     $host,
     $usuario,
@@ -18,9 +14,6 @@ $conexion = new mysqli(
     $baseDatos
 );
 
-/* ========================================= */
-/* VALIDAR CONEXIÓN */
-/* ========================================= */
 
 if($conexion->connect_error){
 
@@ -31,9 +24,6 @@ if($conexion->connect_error){
 
 }
 
-/* ========================================= */
-/* UTF8 */
-/* ========================================= */
 
 $conexion->set_charset("utf8");
 

@@ -36,7 +36,6 @@ if (!$tarea) {
 
 $id_clase = $tarea['clase_id'];
 
-/* Eliminar calificaciones relacionadas */
 
 mysqli_query(
 
@@ -47,7 +46,6 @@ mysqli_query(
 
 );
 
-/* Eliminar entregas relacionadas */
 
 mysqli_query(
 
@@ -57,8 +55,6 @@ mysqli_query(
      WHERE tarea_id = $id"
 
 );
-
-/* Eliminar tarea */
 
 mysqli_query(
 

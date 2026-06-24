@@ -84,8 +84,6 @@ while ($a = mysqli_fetch_assoc($alumnos)) {
 
     $id_alumno = $a['id'];
 
-    /* ASISTENCIAS */
-
     $asistencias = mysqli_num_rows(
 
         mysqli_query(
@@ -118,8 +116,6 @@ while ($a = mysqli_fetch_assoc($alumnos)) {
 
     );
 
-    /* TAREAS ENTREGADAS */
-
     $entregadas = mysqli_num_rows(
 
         mysqli_query(
@@ -141,7 +137,6 @@ while ($a = mysqli_fetch_assoc($alumnos)) {
 
     );
 
-    /* TOTAL DE TAREAS */
 
     $totalTareas = mysqli_num_rows(
 
@@ -161,8 +156,6 @@ while ($a = mysqli_fetch_assoc($alumnos)) {
         0,
         $totalTareas - $entregadas
     );
-
-    /* CALIFICACIÓN FINAL */
 
     $datos = mysqli_fetch_assoc(
 
@@ -207,7 +200,6 @@ while ($a = mysqli_fetch_assoc($alumnos)) {
 
         : 0;
 
-    /* PORCENTAJE DE ASISTENCIA */
 
     $totalAsistencia =
         $asistencias + $ausencias;

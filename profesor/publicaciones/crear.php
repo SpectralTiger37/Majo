@@ -2,10 +2,10 @@
 
 session_start();
 
-if(
+if (
     !isset($_SESSION['id']) ||
     $_SESSION['rol'] != 'maestro'
-){
+) {
     header("Location: ../../auth/login.html");
     exit;
 }
@@ -15,7 +15,7 @@ include '../../includes/sidebar_maestro.php';
 
 $id_clase = intval($_GET['id_clase']);
 
-if(isset($_POST['guardar'])){
+if (isset($_POST['guardar'])) {
 
     $titulo = mysqli_real_escape_string(
         $conexion,
@@ -36,14 +36,14 @@ if(isset($_POST['guardar'])){
 
     $imagen = '';
 
-    if(
+    if (
         isset($_FILES['imagen']) &&
         $_FILES['imagen']['error'] == 0
-    ){
+    ) {
 
         $carpeta = "../uploads/publicaciones/";
 
-        if(!is_dir($carpeta)){
+        if (!is_dir($carpeta)) {
 
             mkdir(
                 $carpeta,
@@ -54,15 +54,15 @@ if(isset($_POST['guardar'])){
         }
 
         $imagen =
-        time().
-        "_".
-        basename($_FILES['imagen']['name']);
+            time() .
+            "_" .
+            basename($_FILES['imagen']['name']);
 
         move_uploaded_file(
 
             $_FILES['imagen']['tmp_name'],
 
-            $carpeta.$imagen
+            $carpeta . $imagen
 
         );
 
@@ -98,7 +98,7 @@ if(isset($_POST['guardar'])){
     );
 
     header(
-        "Location: ../clases/clase.php?id=".$id_clase."&tab=publicaciones"
+        "Location: ../clases/clase.php?id=" . $id_clase . "&tab=publicaciones"
     );
 
     exit;
@@ -112,184 +112,159 @@ if(isset($_POST['guardar'])){
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Nueva Publicación</title>
+    <title>Nueva Publicación</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
+    <style>
+        body {
+            background: #f5f7fb;
+        }
 
-body{
-    background:#f5f7fb;
-}
+        .content {
+            margin-left: 320px;
+            padding: 35px;
+        }
 
-.content{
-    margin-left:320px;
-    padding:35px;
-}
+        .card-form {
 
-.card-form{
+            background: white;
 
-    background:white;
+            max-width: 900px;
 
-    max-width:900px;
+            margin: auto;
 
-    margin:auto;
+            padding: 30px;
 
-    padding:30px;
+            border-radius: 25px;
 
-    border-radius:25px;
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, .05);
 
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.05);
-
-}
-
-</style>
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="content">
+    <div class="content">
 
-    <div class="card-form">
+        <div class="card-form">
 
-        <h2 class="mb-4">
+            <h2 class="mb-4">
 
-            📢 Nueva Publicación
+                📢 Nueva Publicación
 
-        </h2>
+            </h2>
 
-        <form
-        method="POST"
-        enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
 
-            <div class="mb-3">
+                <div class="mb-3">
 
-                <label>
+                    <label>
 
-                    Título
+                        Título
 
-                </label>
+                    </label>
 
-                <input
-                type="text"
-                name="titulo"
-                class="form-control"
-                required>
+                    <input type="text" name="titulo" class="form-control" required>
 
-            </div>
+                </div>
 
-            <div class="mb-3">
+                <div class="mb-3">
 
-                <label>
+                    <label>
 
-                    Descripción
+                        Descripción
 
-                </label>
+                    </label>
 
-                <textarea
-                name="descripcion"
-                class="form-control"
-                rows="5"
-                required></textarea>
+                    <textarea name="descripcion" class="form-control" rows="5" required></textarea>
 
-            </div>
+                </div>
 
-            <div class="mb-3">
+                <div class="mb-3">
 
-                <label>
+                    <label>
 
-                    Tipo
+                        Tipo
 
-                </label>
+                    </label>
 
-                <select
-                name="tipo"
-                class="form-control">
+                    <select name="tipo" class="form-control">
 
-                    <option value="noticia">
+                        <option value="noticia">
 
-                        📢 Noticia
+                            📢 Noticia
 
-                    </option>
+                        </option>
 
-                    <option value="documento">
+                        <option value="documento">
 
-                        📄 Documento
+                            📄 Documento
 
-                    </option>
+                        </option>
 
-                    <option value="video">
+                        <option value="video">
 
-                        🎥 Video
+                            🎥 Video
 
-                    </option>
+                        </option>
 
-                    <option value="enlace">
+                        <option value="enlace">
 
-                        🔗 Enlace
+                            🔗 Enlace
 
-                    </option>
+                        </option>
 
-                </select>
+                    </select>
 
-            </div>
+                </div>
 
-            <div class="mb-3">
+                <div class="mb-3">
 
-                <label>
+                    <label>
 
-                    Imagen
+                        Imagen
 
-                </label>
+                    </label>
 
-                <input
-                type="file"
-                name="imagen"
-                class="form-control">
+                    <input type="file" name="imagen" class="form-control">
 
-            </div>
+                </div>
 
-            <div class="mb-3">
+                <div class="mb-3">
 
-                <label>
+                    <label>
 
-                    Link
+                        Link
 
-                </label>
+                    </label>
 
-                <input
-                type="url"
-                name="link"
-                class="form-control">
+                    <input type="url" name="link" class="form-control">
 
-            </div>
+                </div>
 
-            <button
-            type="submit"
-            name="guardar"
-            class="btn btn-primary">
+                <button type="submit" name="guardar" class="btn btn-primary">
 
-                💾 Publicar
+                    💾 Publicar
 
-            </button>
+                </button>
 
-            <a
-            href="../clases/clase.php?id=<?= $id_clase ?>&tab=publicaciones"
-            class="btn btn-secondary">
+                <a href="../clases/clase.php?id=<?= $id_clase ?>&tab=publicaciones" class="btn btn-secondary">
 
-                Cancelar
+                    Cancelar
 
-            </a>
+                </a>
 
-        </form>
+            </form>
+
+        </div>
 
     </div>
-
-</div>
 
 </body>
 

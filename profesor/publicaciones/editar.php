@@ -99,8 +99,6 @@ if (isset($_POST['guardar'])) {
 
 
 
-            /* eliminar imagen anterior */
-
             if (
                 !empty($publicacion['imagen']) &&
                 file_exists(
