@@ -5,6 +5,31 @@ session_start();
 
 include '../includes/conexion.php';
 include '../includes/sidebar.php';
+
+$id_usuario = $_SESSION['id'];
+
+$tareas = mysqli_query(
+
+    $conexion,
+
+    "SELECT
+
+    t.*,
+    c.nombre AS clase
+
+    FROM tareas t
+
+    INNER JOIN clases c
+    ON t.clase_id = c.id
+
+    INNER JOIN alumnos_clases ac
+    ON c.id = ac.clase_id
+
+    WHERE ac.alumno_id = $id_usuario
+
+    ORDER BY t.fecha_entrega ASC"
+
+);
 ?>
 
 <!DOCTYPE html>
@@ -41,18 +66,19 @@ include '../includes/sidebar.php';
                 0 5px 15px rgba(0, 0, 0, .05);
 
         }
-        #calendar{
 
-    background:white;
+        #calendar {
 
-    padding:20px;
+            background: white;
 
-    border-radius:25px;
+            padding: 20px;
 
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.06);
+            border-radius: 25px;
 
-}
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, .06);
+
+        }
     </style>
 
 </head>
@@ -77,9 +103,16 @@ include '../includes/sidebar.php';
             $conexion,
 
             "SELECT
-t.titulo,
-t.fecha_entrega
-FROM tareas t"
+
+    t.titulo,
+    t.fecha_entrega
+
+    FROM tareas t
+
+    INNER JOIN alumnos_clases ac
+    ON t.clase_id = ac.clase_id
+
+    WHERE ac.alumno_id = $id_usuario"
 
         );
 
@@ -97,23 +130,30 @@ FROM tareas t"
         ?>
         <?php
 
-        $tareas = mysqli_query(
+        $id_usuario = $_SESSION['id'];
 
-            $conexion,
+$tareas = mysqli_query(
 
-            "SELECT
+    $conexion,
 
-t.*,
-c.nombre AS clase
+    "SELECT
 
-FROM tareas t
+    t.*,
+    c.nombre AS clase
 
-INNER JOIN clases c
-ON t.clase_id=c.id
+    FROM tareas t
 
-ORDER BY fecha_entrega ASC"
+    INNER JOIN clases c
+    ON t.clase_id = c.id
 
-        );
+    INNER JOIN alumnos_clases ac
+    ON c.id = ac.clase_id
+
+    WHERE ac.alumno_id = $id_usuario
+
+    ORDER BY t.fecha_entrega ASC"
+
+);
 
         ?>
         <?php while ($t = mysqli_fetch_assoc($tareas)): ?>
@@ -152,34 +192,34 @@ ORDER BY fecha_entrega ASC"
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script>
 
-document.addEventListener('DOMContentLoaded', function(){
+        document.addEventListener('DOMContentLoaded', function () {
 
-    var calendarEl =
-    document.getElementById('calendar');
+            var calendarEl =
+                document.getElementById('calendar');
 
-    var calendar =
-    new FullCalendar.Calendar(
+            var calendar =
+                new FullCalendar.Calendar(
 
-        calendarEl,
+                    calendarEl,
 
-        {
+                    {
 
-            initialView:'dayGridMonth',
+                        initialView: 'dayGridMonth',
 
-            locale:'es',
+                        locale: 'es',
 
-            events:
-            <?= json_encode($eventos) ?>
+                        events:
+                            <?= json_encode($eventos) ?>
 
-        }
+                    }
 
-    );
+                );
 
-    calendar.render();
+            calendar.render();
 
-});
+        });
 
-</script>
+    </script>
 </body>
 
 </html>

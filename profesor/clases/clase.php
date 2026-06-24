@@ -201,6 +201,16 @@ $tab = $_GET['tab'] ?? 'publicaciones';
 
                             </p>
 
+                            <?php if (!empty($p['imagen'])): ?>
+
+                                <img src="../uploads/publicaciones/<?= htmlspecialchars($p['imagen']) ?>"
+                                    class="img-fluid rounded mb-3" style="
+        max-height:400px;
+        width:100%;
+        object-fit:cover;">
+
+                            <?php endif; ?>
+
                             <?php if (!empty($p['link'])): ?>
 
                                 <a href="<?= htmlspecialchars($p['link']) ?>" target="_blank" class="btn btn-info btn-sm">
@@ -324,7 +334,95 @@ $tab = $_GET['tab'] ?? 'publicaciones';
 
                 <h3>👨‍🎓 Alumnos inscritos</h3>
 
+                <hr>
+
                 <?php
+
+                $alumnos = mysqli_query(
+
+                    $conexion,
+
+                    "SELECT u.*
+
+    FROM usuarios u
+
+    INNER JOIN alumnos_clases ac
+    ON u.id = ac.alumno_id
+
+    WHERE ac.clase_id = $id_clase
+
+    ORDER BY u.nombre ASC"
+
+                );
+
+                if (mysqli_num_rows($alumnos) == 0) {
+
+                    echo '
+
+    <div class="alert alert-warning">
+
+        No hay alumnos inscritos.
+
+    </div>';
+
+                }
+
+                while ($a = mysqli_fetch_assoc($alumnos)) {
+
+                    ?>
+
+                    <div class="card mb-3">
+
+                        <div class="card mb-3">
+
+                            <div class="card-body d-flex align-items-center">
+
+                                <?php
+
+                                $fotoAlumno = !empty($a['foto'])
+
+                                    ? "../../uploads/perfiles/" . $a['foto']
+
+                                    : "https://ui-avatars.com/api/?name=" . urlencode($a['nombre']) . "&background=4f46e5&color=ffffff";
+
+                                ?>
+
+                                <img src="<?= $fotoAlumno ?>" width="60" height="60" style="
+
+        border-radius:50%;
+        object-fit:cover;
+        margin-right:15px;">
+
+                                <div>
+
+                                    <h5 class="mb-1">
+
+                                        <?= htmlspecialchars($a['nombre']) ?>
+
+                                    </h5>
+
+                                    <small>
+
+                                        <?= htmlspecialchars($a['correo']) ?>
+
+                                    </small>
+
+                                    <br>
+
+                                    ⭐ Nivel <?= $a['nivel'] ?>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <?php
+
+                }
+
 
             } elseif ($tab == 'asistencias') {
 

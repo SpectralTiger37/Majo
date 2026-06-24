@@ -24,7 +24,13 @@ $usuario = mysqli_fetch_assoc(
 
 $paginaActual = basename($_SERVER['PHP_SELF']);
 
-$rutaBase = "/Majo";
+$protocolo = isset($_SERVER['HTTPS']) ? 'https' : 'http';
+
+$rutaBase =
+$protocolo .
+'://' .
+$_SERVER['HTTP_HOST'] .
+'/';
 
 ?>
 
@@ -171,7 +177,7 @@ $rutaBase = "/Majo";
     class="foto-perfil"
 
     src="<?= !empty($usuario['foto'])
-? $rutaBase.'/profesor/uploads/perfil/'.$usuario['foto']
+? $rutaBase.'../profesor/uploads/perfil/'.$usuario['foto']
 : 'https://ui-avatars.com/api/?name='.urlencode($usuario['nombre']).'&background=4f46e5&color=ffffff'
 ?>"
 
@@ -205,10 +211,6 @@ $rutaBase = "/Majo";
 
 <a href="<?= $rutaBase ?>/profesor/asistencias/historial.php" class="btn-menu">
     ✅ Asistencias
-</a>
-
-<a href="<?= $rutaBase ?>/profesor/reportes/excel.php" class="btn-menu">
-    📊 Reportes
 </a>
 
 <a href="<?= $rutaBase ?>/profesor/perfil.php" class="btn-menu">

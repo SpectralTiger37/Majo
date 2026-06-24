@@ -213,7 +213,9 @@ ORDER BY created_at DESC
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <h5>
-                                    📄 <?= $t['titulo'] ?>
+
+                                    📄 <?= htmlspecialchars($t['titulo']) ?>
+
                                 </h5>
 
                                 <span class="badge bg-primary">
@@ -225,6 +227,19 @@ ORDER BY created_at DESC
                             </div>
 
                             <hr>
+
+                            <p>
+
+                                <?= nl2br(htmlspecialchars($t['descripcion'])) ?>
+
+                            </p>
+
+                            <p>
+
+                                📅 Fecha de entrega:
+                                <?= $t['fecha_entrega'] ?>
+
+                            </p>
 
                             <?php if ($entrega == 0): ?>
 
@@ -244,25 +259,25 @@ ORDER BY created_at DESC
 
                             <?php endif; ?>
 
-                        </div>
-
                     </div>
 
-                <?php endwhile; ?>
+                </div>
 
-            </div>
+            <?php endwhile; ?>
 
-        <?php endif; ?>
+        </div>
 
-        <?php
+    <?php endif; ?>
 
-        if ($tab == 'personas'):
+    <?php
 
-            $alumnos = mysqli_query(
+    if ($tab == 'personas'):
 
-                $conexion,
+        $alumnos = mysqli_query(
 
-                "SELECT u.*
+            $conexion,
+
+            "SELECT u.*
 
 FROM usuarios u
 
@@ -272,103 +287,160 @@ ON u.id = ac.alumno_id
 
 WHERE ac.clase_id=$id"
 
-            );
+        );
 
-            ?>
+        ?>
 
-            <div class="publicacion">
+        <div class="publicacion">
 
-                <h4>
+            <h4>
 
-                    👨‍🎓 Alumnos inscritos
+                👨‍🎓 Alumnos inscritos
 
-                </h4>
+            </h4>
 
-                <hr>
+            <hr>
 
-                <?php while ($a = mysqli_fetch_assoc($alumnos)): ?>
+            <?php while ($a = mysqli_fetch_assoc($alumnos)): ?>
 
-                    <div class="d-flex
+                <div class="d-flex
 align-items-center
 mb-3">
 
-                        <img src="https://ui-avatars.com/api/?name=<?=
-                            urlencode($a['nombre'])
-                            ?>" width="50" height="50" style="
+                    <img src="https://ui-avatars.com/api/?name=<?=
+                        urlencode($a['nombre'])
+                        ?>" width="50" height="50" style="
 border-radius:50%;
 margin-right:15px;
 ">
 
-                        <div>
+                    <div>
 
-                            <strong>
+                        <strong>
 
-                                <?= $a['nombre'] ?>
+                            <?= $a['nombre'] ?>
 
-                            </strong>
+                        </strong>
 
-                            <br>
+                        <br>
 
-                            Nivel
+                        Nivel
 
-                            <?= $a['nivel'] ?>
+                        <?= $a['nivel'] ?>
 
-                            ⭐
-
-                        </div>
-
-                    </div>
-
-                <?php endwhile; ?>
-
-            </div>
-
-        <?php endif; ?>
-
-        <?php if ($tab == 'novedades'): ?>
-
-            <h3 class="mt-4">
-                Novedades
-            </h3>
-
-            <?php while ($p = mysqli_fetch_assoc($publicaciones)): ?>
-
-                <div class="publicacion">
-
-                    <h5>
-                        <?= $p['titulo'] ?>
-                    </h5>
-
-                    <p>
-                        <?= $p['descripcion'] ?>
-                    </p>
-
-                    <?php if (!empty($p['imagen'])): ?>
-
-                        <img src="../profesor/uploads/publicaciones/<?= $p['imagen'] ?>" class="img-fluid rounded mt-3">
-
-                    <?php endif; ?>
-
-                    <?php if (!empty($p['link'])): ?>
-
-                        <a href="../uploads/pdf/<?= $p['link'] ?>" target="_blank" class="btn btn-danger mt-3">
-
-                            📄 Ver PDF
-
-                        </a>
-
-                    <?php endif; ?>
-
-                    <div class="fecha mt-3">
-
-                        <?= $p['created_at'] ?>
+                        ⭐
 
                     </div>
 
                 </div>
 
             <?php endwhile; ?>
+
+        </div>
+
+    <?php endif; ?>
+
+    <?php if ($tab == 'novedades'): ?>
+
+        <h3 class="mt-4">
+
+            📢 Novedades
+
+        </h3>
+
+        <?php if (mysqli_num_rows($publicaciones) == 0): ?>
+
+            <div class="alert alert-info">
+
+                No hay publicaciones todavía.
+
+            </div>
+
         <?php endif; ?>
+
+        <?php while ($p = mysqli_fetch_assoc($publicaciones)): ?>
+
+            <div class="publicacion">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <h5>
+
+                        <?= htmlspecialchars($p['titulo']) ?>
+
+                    </h5>
+
+                    <span class="badge bg-primary">
+
+                        <?= ucfirst($p['tipo']) ?>
+
+                    </span>
+
+                </div>
+
+                <hr>
+
+                <p>
+
+                    <?= nl2br(htmlspecialchars($p['descripcion'])) ?>
+
+                </p>
+
+                <?php if (!empty($p['imagen'])): ?>
+
+                    <img src="../profesor/uploads/publicaciones/<?= htmlspecialchars($p['imagen']) ?>"
+                        class="img-fluid rounded mt-3" style="
+                max-height:400px;
+                width:100%;
+                object-fit:cover;">
+
+                <?php endif; ?>
+
+                <?php if (!empty($p['link'])): ?>
+
+                    <div class="mt-3">
+
+                        <?php if ($p['tipo'] == 'documento'): ?>
+
+                            <a href="<?= htmlspecialchars($p['link']) ?>" target="_blank" class="btn btn-success">
+
+                                📄 Abrir documento
+
+                            </a>
+
+                        <?php elseif ($p['tipo'] == 'video'): ?>
+
+                            <a href="<?= htmlspecialchars($p['link']) ?>" target="_blank" class="btn btn-danger">
+
+                                🎥 Ver video
+
+                            </a>
+
+                        <?php elseif ($p['tipo'] == 'enlace'): ?>
+
+                            <a href="<?= htmlspecialchars($p['link']) ?>" target="_blank" class="btn btn-primary">
+
+                                🔗 Abrir enlace
+
+                            </a>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+                <div class="fecha mt-3">
+
+                    📅 <?= $p['created_at'] ?>
+
+                </div>
+
+            </div>
+
+        <?php endwhile; ?>
+
+    <?php endif; ?>
 
     </div>
 

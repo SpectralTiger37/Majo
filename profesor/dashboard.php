@@ -274,7 +274,7 @@ border-radius:20px;">
                         👨‍🎓 <?= $totalAlumnosClase ?> alumnos
                     </p>
 
-                    <a href="clase.php?id=<?= $c['id'] ?>" class="btn btn-primary">
+                    <a href="clases/clase.php?id=<?= $c['id'] ?>" class="btn btn-primary">
 
                         Administrar
 
