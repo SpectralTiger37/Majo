@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-    /* ========================================= */
-    /* ELEMENTOS */
-    /* ========================================= */
-
     const openLogin =
     document.getElementById("openLogin");
 
@@ -22,19 +18,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     const signupForm =
     document.getElementById("signupForm");
 
-    /* ========================================= */
-    /* ABRIR MODAL */
-    /* ========================================= */
-
     openLogin.addEventListener("click",()=>{
 
         loginModal.style.display = "flex";
 
     });
-
-    /* ========================================= */
-    /* CERRAR MODAL */
-    /* ========================================= */
 
     window.addEventListener("click",(e)=>{
 
@@ -45,10 +33,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
 
     });
-
-    /* ========================================= */
-    /* TAB LOGIN */
-    /* ========================================= */
 
     loginTab.addEventListener("click",()=>{
 
@@ -61,10 +45,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         signupForm.classList.add("hidden");
 
     });
-
-    /* ========================================= */
-    /* TAB SIGNUP */
-    /* ========================================= */
 
     signupTab.addEventListener("click",()=>{
 

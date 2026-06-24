@@ -1,210 +1,194 @@
-<!-- index.php -->
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EduNova</title>
+    <title>EduNova</title>
 
-<!-- CSS -->
-<link rel="stylesheet"
-href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
 
-<!-- ========================================= -->
-<!-- NAVBAR -->
-<!-- ========================================= -->
+    <nav class="navbar">
 
-<nav class="navbar">
+        <div class="logo-container">
 
-    <div class="logo-container">
+            <h1 class="logo">
+                EduNova
+            </h1>
 
-        <h1 class="logo">
-            EduNova
-        </h1>
+            <div class="divider"></div>
 
-        <div class="divider"></div>
-
-        <span class="system-name">
-            Sistema Academico
-        </span>
-
-    </div>
-
-    <button class="login-btn"
-    id="openLogin">
-
-        Iniciar sesión
-
-    </button>
-
-</nav>
-
-<!-- ========================================= -->
-<!-- HERO -->
-<!-- ========================================= -->
-
-<section class="hero">
-
-    <!-- LEFT -->
-
-    <div class="hero-left">
-
-        <span class="badge">
-            NEXT GENERATION ACADEMIC PLATFORM
-        </span>
-
-        <h1>
-
-            Transforma el rendimiento académico
-            en una experiencia interactiva.
-
-        </h1>
-
-        <p>
-
-            Gestiona clases, monitorea progreso
-            estudiantil y analiza métricas académicas
-            mediante una plataforma moderna y gamificada.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <button class="primary-btn">
-
-                Explorar sistema
-
-            </button>
-
-            <button class="secondary-btn">
-
-                Ver demostración
-
-            </button>
+            <span class="system-name">
+                Sistema Academico
+            </span>
 
         </div>
 
-        <!-- STATS -->
+        <button class="login-btn" id="openLogin">
 
-        <div class="stats-container">
+            Iniciar sesión
 
-            <div class="stat-card">
+        </button>
 
-                <h2>+12K</h2>
+    </nav>
 
-                <span>
-                    Academic Events
-                </span>
+    <section class="hero">
+
+
+        <div class="hero-left">
+
+            <span class="badge">
+                NEXT GENERATION ACADEMIC PLATFORM
+            </span>
+
+            <h1>
+
+                Transforma el rendimiento académico
+                en una experiencia interactiva.
+
+            </h1>
+
+            <p>
+
+                Gestiona clases, monitorea progreso
+                estudiantil y analiza métricas académicas
+                mediante una plataforma moderna y gamificada.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+
+                    Explorar sistema
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    Ver demostración
+
+                </button>
 
             </div>
 
-            <div class="stat-card">
 
-                <h2>97%</h2>
+            <div class="stats-container">
 
-                <span>
-                    Performance Accuracy
-                </span>
+                <div class="stat-card">
 
-            </div>
+                    <h2>+12K</h2>
 
-            <div class="stat-card">
+                    <span>
+                        Academic Events
+                    </span>
 
-                <h2>24/7</h2>
+                </div>
 
-                <span>
-                    Student Tracking
-                </span>
+                <div class="stat-card">
+
+                    <h2>97%</h2>
+
+                    <span>
+                        Performance Accuracy
+                    </span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h2>24/7</h2>
+
+                    <span>
+                        Student Tracking
+                    </span>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
-    <!-- RIGHT -->
+        <div class="hero-right">
 
-    <div class="hero-right">
+            <div class="dashboard-preview">
 
-        <div class="dashboard-preview">
 
-            <!-- TOP BAR -->
+                <div class="dashboard-top">
 
-            <div class="dashboard-top">
+                    <div class="top-dots">
 
-                <div class="top-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    </div>
 
-                </div>
+                    <div class="dashboard-title">
 
-                <div class="dashboard-title">
+                        spectral.dashboard
 
-                    spectral.dashboard
+                    </div>
 
                 </div>
 
-            </div>
 
-            <!-- DASHBOARD CONTENT -->
+                <div class="dashboard-content">
 
-            <div class="dashboard-content">
+                    <div class="preview-card">
 
-                <!-- CARD -->
+                        <h3>LEVEL</h3>
 
-                <div class="preview-card">
+                        <p>18</p>
 
-                    <h3>LEVEL</h3>
+                    </div>
 
-                    <p>18</p>
 
-                </div>
+                    <div class="preview-card">
 
-                <!-- CARD -->
+                        <h3>XP</h3>
 
-                <div class="preview-card">
+                        <p>2450</p>
 
-                    <h3>XP</h3>
+                    </div>
 
-                    <p>2450</p>
 
-                </div>
+                    <div class="preview-card">
 
-                <!-- CARD -->
+                        <h3>STATUS</h3>
 
-                <div class="preview-card">
+                        <p class="stable">
 
-                    <h3>STATUS</h3>
+                            STABLE
 
-                    <p class="stable">
+                        </p>
 
-                        STABLE
+                    </div>
 
-                    </p>
 
-                </div>
 
-                <!-- GRAPH -->
+                    <div class="chart-card">
 
-                <div class="chart-card">
+                        <div class="fake-chart">
 
-                    <div class="fake-chart">
+                            <div class="line"></div>
 
-                        <div class="line"></div>
+                        </div>
 
                     </div>
 
@@ -214,131 +198,145 @@ rel="stylesheet">
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<!-- ========================================= -->
-<!-- LOGIN MODAL -->
-<!-- ========================================= -->
+    <div class="modal" id="loginModal">
 
-<div class="modal"
-id="loginModal">
+        <div class="modal-content auth-box">
 
-    <div class="modal-content auth-box">
+            <div class="auth-tabs">
 
-        <!-- TABS -->
+                <button class="tab-btn active" id="loginTab">
 
-        <div class="auth-tabs">
-
-            <button class="tab-btn active"
-            id="loginTab">
-
-                Login
-
-            </button>
-
-            <button class="tab-btn"
-            id="signupTab">
-
-                Sign Up
-
-            </button>
-
-        </div>
-
-        <!-- ================================= -->
-        <!-- LOGIN -->
-        <!-- ================================= -->
-
-        <div class="auth-form"
-        id="loginForm">
-
-            <h2>
-                ACCESS SYSTEM
-            </h2>
-
-            <form action="auth/login.php"
-            method="POST">
-
-                <input type="email"
-                name="correo"
-                placeholder="Email"
-                required>
-
-                <input type="password"
-                name="password"
-                placeholder="Password"
-                required>
-
-                <button type="submit">
-
-                    LOGIN
+                    Login
 
                 </button>
 
-            </form>
+                <button class="tab-btn" id="signupTab">
 
-            <p class="teacher-text">
+                    Sign Up
 
-                Teacher accounts require
-                institutional authorization.
+                </button>
 
-            </p>
+            </div>
 
-        </div>
 
-        <!-- ================================= -->
-        <!-- SIGNUP -->
-        <!-- ================================= -->
+            <div class="auth-form" id="loginForm">
 
-        <div class="auth-form hidden"
-        id="signupForm">
+                <h2>
+                    ACCESS SYSTEM
+                </h2>
 
-            <h2>
-                CREATE ACCOUNT
-            </h2>
+                <form action="auth/login.php" method="POST">
+                    <?php if (isset($_SESSION['error_login'])): ?>
 
-            <form action="auth/signup.php"
-            method="POST">
+                        <div style="
+background:#ffebee;
+color:#c62828;
+padding:10px;
+border-radius:10px;
+margin-bottom:15px;
+text-align:center;">
 
-                <input type="text"
-                name="nombre"
-                placeholder="Full Name"
-                required>
+                            <?= $_SESSION['error_login'] ?>
 
-                <input type="email"
-                name="correo"
-                placeholder="Email"
-                required>
+                        </div>
 
-                <input type="password"
-                name="password"
-                placeholder="Password"
-                required>
+                    <?php endif; ?>
 
-                <button type="submit">
 
+                    <input type="email" name="correo" placeholder="Email" required>
+
+                    <input type="password" name="password" placeholder="Password" required>
+
+                    <button type="submit">
+
+                        LOGIN
+
+                    </button>
+
+                </form>
+                <?php if (isset($_SESSION['error_login'])): ?>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", () => {
+
+                            document.getElementById("loginModal")
+                                .style.display = "flex";
+
+                        });
+
+                    </script>
+
+                    <?php
+                    unset($_SESSION['error_login']);
+                endif;
+                ?>
+
+                <p class="teacher-text">
+
+                    Teacher accounts require
+                    institutional authorization.
+
+                </p>
+
+            </div>
+
+            <div class="auth-form hidden" id="signupForm">
+
+                <h2>
                     CREATE ACCOUNT
+                </h2>
 
-                </button>
+                <form action="auth/signup.php" method="POST">
 
-            </form>
+                    <input type="text" name="nombre" placeholder="Full Name" required>
 
-            <p class="teacher-text">
+                    <input type="email" name="correo" placeholder="Email" required>
 
-                Student registration only.
+                    <input type="password" name="password" placeholder="Password" required>
 
-            </p>
+                    <button type="submit">
+
+                        CREATE ACCOUNT
+
+                    </button>
+
+                </form>
+
+                <p class="teacher-text">
+
+                    Student registration only.
+
+                </p>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
+    <script src="assets/js/index.js"></script>
+    <?php if (isset($_SESSION['error_login'])): ?>
 
-<!-- JS -->
-<script src="assets/js/index.js"></script>
+        <script>
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                document.getElementById("loginModal")
+                    .style.display = "flex";
+
+            });
+
+        </script>
+
+        <?php
+        unset($_SESSION['error_login']);
+    endif;
+    ?>
 
 </body>
+
 </html>
