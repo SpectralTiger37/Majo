@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,183 +15,87 @@ session_start();
 
     <link rel="stylesheet" href="assets/css/index.css">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+
     <nav class="navbar">
 
-        <div class="logo-container">
+        <h2>EduNova</h2>
 
-            <h1 class="logo">
-                EduNova
-            </h1>
+        <div class="nav-links">
 
-            <div class="divider"></div>
+            <a href="#inicio">Inicio</a>
 
-            <span class="system-name">
-                Sistema Academico
-            </span>
+            <a href="#servicios">Servicios</a>
+
+            <button id="openLogin">
+                Iniciar sesión
+            </button>
 
         </div>
-
-        <button class="login-btn" id="openLogin">
-
-            Iniciar sesión
-
-        </button>
 
     </nav>
 
-    <section class="hero">
 
 
-        <div class="hero-left">
+    <section class="hero" id="inicio">
 
-            <span class="badge">
-                NEXT GENERATION ACADEMIC PLATFORM
-            </span>
+        <div class="hero-text">
 
             <h1>
-
-                Transforma el rendimiento académico
-                en una experiencia interactiva.
-
+                Sistema académico EduNova
             </h1>
 
             <p>
-
-                Gestiona clases, monitorea progreso
-                estudiantil y analiza métricas académicas
-                mediante una plataforma moderna y gamificada.
-
+                Una plataforma para consultar materias,
+                actividades y progreso académico.
             </p>
 
-            <div class="hero-buttons">
-
-                <button class="primary-btn">
-
-                    Explorar sistema
-
-                </button>
-
-                <button class="secondary-btn">
-
-                    Ver demostración
-
-                </button>
-
-            </div>
-
-
-            <div class="stats-container">
-
-                <div class="stat-card">
-
-                    <h2>+12K</h2>
-
-                    <span>
-                        Academic Events
-                    </span>
-
-                </div>
-
-                <div class="stat-card">
-
-                    <h2>97%</h2>
-
-                    <span>
-                        Performance Accuracy
-                    </span>
-
-                </div>
-
-                <div class="stat-card">
-
-                    <h2>24/7</h2>
-
-                    <span>
-                        Student Tracking
-                    </span>
-
-                </div>
-
-            </div>
+            <button id="heroLogin">
+                Comenzar
+            </button>
 
         </div>
 
 
-        <div class="hero-right">
+        <div class="hero-box">
 
-            <div class="dashboard-preview">
+            <h3>EduNova</h3>
 
+            <p>
+                Tu información académica
+                en un solo lugar.
+            </p>
 
-                <div class="dashboard-top">
+            <div class="info">
 
-                    <div class="top-dots">
+                <div>
 
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <strong>Materias</strong>
 
-                    </div>
-
-                    <div class="dashboard-title">
-
-                        spectral.dashboard
-
-                    </div>
+                    <span>Consulta tus clases</span>
 
                 </div>
 
 
-                <div class="dashboard-content">
+                <div>
 
-                    <div class="preview-card">
+                    <strong>Actividades</strong>
 
-                        <h3>LEVEL</h3>
+                    <span>Revisa tus tareas</span>
 
-                        <p>18</p>
-
-                    </div>
+                </div>
 
 
-                    <div class="preview-card">
+                <div>
 
-                        <h3>XP</h3>
+                    <strong>Progreso</strong>
 
-                        <p>2450</p>
-
-                    </div>
-
-
-                    <div class="preview-card">
-
-                        <h3>STATUS</h3>
-
-                        <p class="stable">
-
-                            STABLE
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="chart-card">
-
-                        <div class="fake-chart">
-
-                            <div class="line"></div>
-
-                        </div>
-
-                    </div>
+                    <span>Consulta tu avance</span>
 
                 </div>
 
@@ -201,141 +106,192 @@ session_start();
     </section>
 
 
+
+    <section class="services" id="servicios">
+
+        <h2>
+            Servicios
+        </h2>
+
+        <p class="description">
+            Algunas funciones disponibles dentro de EduNova.
+        </p>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>Materias</h3>
+
+                <p>
+                    Consulta las materias que tienes registradas.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Actividades</h3>
+
+                <p>
+                    Revisa las actividades y tareas disponibles.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Calificaciones</h3>
+
+                <p>
+                    Consulta las calificaciones de tus materias.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Progreso</h3>
+
+                <p>
+                    Observa tu progreso durante el curso.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            EduNova - Sistema Académico
+        </p>
+
+    </footer>
+
+
+
+    <!-- MODAL LOGIN -->
+
     <div class="modal" id="loginModal">
 
-        <div class="modal-content auth-box">
+        <div class="modal-content">
 
-            <div class="auth-tabs">
 
-                <button class="tab-btn active" id="loginTab">
+            <div class="tabs">
+
+                <button class="tab active" id="loginTab">
 
                     Login
 
                 </button>
 
-                <button class="tab-btn" id="signupTab">
 
-                    Sign Up
+                <button class="tab" id="signupTab">
+
+                    Registro
 
                 </button>
 
             </div>
 
 
-            <div class="auth-form" id="loginForm">
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
 
                 <h2>
-                    ACCESS SYSTEM
+                    Iniciar sesión
                 </h2>
 
+
+                <?php if (isset($_SESSION['error_login'])): ?>
+
+                    <div class="error">
+
+                        <?= htmlspecialchars($_SESSION['error_login']) ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+
                 <form action="auth/login.php" method="POST">
-                    <?php if (isset($_SESSION['error_login'])): ?>
 
-                        <div style="
-background:#ffebee;
-color:#c62828;
-padding:10px;
-border-radius:10px;
-margin-bottom:15px;
-text-align:center;">
-
-                            <?= $_SESSION['error_login'] ?>
-
-                        </div>
-
-                    <?php endif; ?>
+                    <input type="email" name="correo" placeholder="Correo" required>
 
 
-                    <input type="email" name="correo" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
 
-                    <input type="password" name="password" placeholder="Password" required>
 
                     <button type="submit">
-
-                        LOGIN
-
+                        Entrar
                     </button>
 
                 </form>
-                <?php if (isset($_SESSION['error_login'])): ?>
-
-                    <script>
-
-                        document.addEventListener("DOMContentLoaded", () => {
-
-                            document.getElementById("loginModal")
-                                .style.display = "flex";
-
-                        });
-
-                    </script>
-
-                    <?php
-                    unset($_SESSION['error_login']);
-                endif;
-                ?>
-
-                <p class="teacher-text">
-
-                    Teacher accounts require
-                    institutional authorization.
-
-                </p>
 
             </div>
 
-            <div class="auth-form hidden" id="signupForm">
+
+
+            <!-- REGISTRO -->
+
+            <div id="signupForm" class="hidden">
 
                 <h2>
-                    CREATE ACCOUNT
+                    Crear cuenta
                 </h2>
+
 
                 <form action="auth/signup.php" method="POST">
 
-                    <input type="text" name="nombre" placeholder="Full Name" required>
+                    <input type="text" name="nombre" placeholder="Nombre completo" required>
 
-                    <input type="email" name="correo" placeholder="Email" required>
 
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="email" name="correo" placeholder="Correo" required>
+
+
+                    <input type="password" name="password" placeholder="Contraseña" required>
+
 
                     <button type="submit">
-
-                        CREATE ACCOUNT
-
+                        Registrarse
                     </button>
 
                 </form>
 
-                <p class="teacher-text">
-
-                    Student registration only.
-
-                </p>
-
             </div>
+
 
         </div>
 
     </div>
 
-    <script src="assets/js/index.js"></script>
+
+
     <?php if (isset($_SESSION['error_login'])): ?>
 
         <script>
-
-            document.addEventListener("DOMContentLoaded", () => {
-
-                document.getElementById("loginModal")
-                    .style.display = "flex";
-
-            });
-
+            window.errorLogin = true;
         </script>
 
-        <?php
-        unset($_SESSION['error_login']);
-    endif;
-    ?>
+        <?php unset($_SESSION['error_login']); ?>
+
+    <?php endif; ?>
+
+
+    <script src="assets/js/index.js"></script>
 
 </body>
 

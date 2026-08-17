@@ -1,61 +1,95 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal =
+        document.getElementById("loginModal");
 
     const openLogin =
-    document.getElementById("openLogin");
+        document.getElementById("openLogin");
 
-    const loginModal =
-    document.getElementById("loginModal");
+    const heroLogin =
+        document.getElementById("heroLogin");
+
 
     const loginTab =
-    document.getElementById("loginTab");
+        document.getElementById("loginTab");
 
     const signupTab =
-    document.getElementById("signupTab");
+        document.getElementById("signupTab");
+
 
     const loginForm =
-    document.getElementById("loginForm");
+        document.getElementById("loginForm");
 
     const signupForm =
-    document.getElementById("signupForm");
+        document.getElementById("signupForm");
 
-    openLogin.addEventListener("click",()=>{
 
-        loginModal.style.display = "flex";
 
-    });
+    function abrirLogin() {
 
-    window.addEventListener("click",(e)=>{
-
-        if(e.target === loginModal){
-
-            loginModal.style.display = "none";
-
-        }
-
-    });
-
-    loginTab.addEventListener("click",()=>{
-
-        loginTab.classList.add("active");
-
-        signupTab.classList.remove("active");
+        modal.style.display = "flex";
 
         loginForm.classList.remove("hidden");
 
         signupForm.classList.add("hidden");
 
+        loginTab.classList.add("active");
+
+        signupTab.classList.remove("active");
+
+    }
+
+
+    openLogin.addEventListener("click", abrirLogin);
+
+    heroLogin.addEventListener("click", abrirLogin);
+
+
+
+    loginTab.addEventListener("click", () => {
+
+        loginForm.classList.remove("hidden");
+
+        signupForm.classList.add("hidden");
+
+        loginTab.classList.add("active");
+
+        signupTab.classList.remove("active");
+
     });
 
-    signupTab.addEventListener("click",()=>{
 
-        signupTab.classList.add("active");
 
-        loginTab.classList.remove("active");
+    signupTab.addEventListener("click", () => {
 
         signupForm.classList.remove("hidden");
 
         loginForm.classList.add("hidden");
 
+        signupTab.classList.add("active");
+
+        loginTab.classList.remove("active");
+
     });
+
+
+
+    window.addEventListener("click", (e) => {
+
+        if (e.target === modal) {
+
+            modal.style.display = "none";
+
+        }
+
+    });
+
+
+
+    if (window.errorLogin) {
+
+        abrirLogin();
+
+    }
 
 });
