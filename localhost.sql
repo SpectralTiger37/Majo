@@ -221,7 +221,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `password`, `rol`, `xp`, `nivel`, `foto`, `semestre`, `grupo`) VALUES
-(1, 'SpectralTiger', 'sebaselpro0908@gmail.com', '$2y$10$uRNTTINBbEr3lKkLs36sDOmssgFMW9yNe9m4saD3oKMSzkdhxCNgq', 'alumno', 150, 1, '1780366398_images.jpg', '6', 'F'),
+(1, 'SpectralTiger', 'sebas@gmail.com', '$2y$10$uRNTTINBbEr3lKkLs36sDOmssgFMW9yNe9m4saD3oKMSzkdhxCNgq', 'alumno', 150, 1, '1780366398_images.jpg', '6', 'F'),
 (2, 'Maestro ST', 'maestro@spectral.com', '$2y$10$zpsejBry5kWt3qAcxZgGxuKJ2Sx0bZ9VIll8VXDqAGujmsXzvROi2', 'maestro', 0, 1, 'perfil_2_1781846735.jpg', NULL, NULL),
 (3, 'Osvaldo', 'osvaldo@tufino.com', '$2y$12$CiYqdZw.hIRtZ.PwmHtGPOMxFHjMvv6Shpm7G7sHuVxPkk4LZGbW.', 'alumno', 0, 1, NULL, NULL, NULL);
 

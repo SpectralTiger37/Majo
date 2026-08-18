@@ -1,10 +1,10 @@
 <?php
 
-if(session_status() === PHP_SESSION_NONE){
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include_once __DIR__.'/conexion.php';
+include_once __DIR__ . '/conexion.php';
 
 $id_usuario = $_SESSION['id'];
 
@@ -24,164 +24,153 @@ $usuario = mysqli_fetch_assoc(
 
 $paginaActual = basename($_SERVER['PHP_SELF']);
 
-$protocolo = isset($_SERVER['HTTPS']) ? 'https' : 'http';
+$protocolo = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+    ? 'https'
+    : 'http';
 
-$rutaBase =
-$protocolo .
-'://' .
-$_SERVER['HTTP_HOST'] .
-'/';
-
+$rutaBase = $protocolo . '://' . $_SERVER['HTTP_HOST'] . '/Majo/';
 ?>
 
 <style>
+    .sidebar {
 
-.sidebar{
+        position: fixed;
 
-    position:fixed;
+        top: 0;
+        left: 0;
 
-    top:0;
-    left:0;
+        width: 280px;
 
-    width:280px;
+        height: 100vh;
 
-    height:100vh;
+        background: white;
 
-    background:white;
+        padding: 25px;
 
-    padding:25px;
+        overflow-y: auto;
 
-    overflow-y:auto;
+        box-shadow:
+            0 0 25px rgba(0, 0, 0, .08);
 
-    box-shadow:
-    0 0 25px rgba(0,0,0,.08);
+        z-index: 1000;
 
-    z-index:1000;
+    }
 
-}
+    .foto-perfil {
 
-.foto-perfil{
+        width: 100px;
 
-    width:100px;
+        height: 100px;
 
-    height:100px;
+        border-radius: 50%;
 
-    border-radius:50%;
+        object-fit: cover;
 
-    object-fit:cover;
+        border: 4px solid #4f46e5;
 
-    border:4px solid #4f46e5;
+        display: block;
 
-    display:block;
+        margin: auto;
 
-    margin:auto;
+    }
 
-}
+    .sidebar h4 {
 
-.sidebar h4{
+        text-align: center;
 
-    text-align:center;
+        margin-top: 15px;
 
-    margin-top:15px;
+        font-weight: 700;
 
-    font-weight:700;
+    }
 
-}
+    .sidebar h6 {
 
-.sidebar h6{
+        text-align: center;
 
-    text-align:center;
+        color: #6b7280;
 
-    color:#6b7280;
+    }
 
-}
+    .btn-menu {
 
-.btn-menu{
+        display: block;
 
-    display:block;
+        width: 100%;
 
-    width:100%;
+        padding: 14px 18px;
 
-    padding:14px 18px;
+        margin-bottom: 10px;
 
-    margin-bottom:10px;
+        border-radius: 14px;
 
-    border-radius:14px;
+        text-decoration: none;
 
-    text-decoration:none;
+        color: #333;
 
-    color:#333;
+        background: #f3f4f6;
 
-    background:#f3f4f6;
+        transition: .3s;
 
-    transition:.3s;
+    }
 
-}
+    .btn-menu:hover {
 
-.btn-menu:hover{
+        background: #4f46e5;
 
-    background:#4f46e5;
+        color: white;
 
-    color:white;
+    }
 
-}
+    .btn-menu.active {
 
-.btn-menu.active{
+        background: #4f46e5;
 
-    background:#4f46e5;
+        color: white;
 
-    color:white;
+    }
 
-}
+    .btn-danger-menu {
 
-.btn-danger-menu{
+        background: #dc3545;
 
-    background:#dc3545;
+        color: white !important;
 
-    color:white !important;
+    }
 
-}
+    .btn-danger-menu:hover {
 
-.btn-danger-menu:hover{
+        background: #bb2d3b;
 
-    background:#bb2d3b;
+    }
 
-}
+    .sidebar hr {
 
-.sidebar hr{
+        margin: 20px 0;
 
-    margin:20px 0;
+    }
 
-}
+    .sidebar::-webkit-scrollbar {
 
-.sidebar::-webkit-scrollbar{
+        width: 6px;
 
-    width:6px;
+    }
 
-}
+    .sidebar::-webkit-scrollbar-thumb {
 
-.sidebar::-webkit-scrollbar-thumb{
+        background: #4f46e5;
 
-    background:#4f46e5;
+        border-radius: 20px;
 
-    border-radius:20px;
-
-}
-
+    }
 </style>
 
 <div class="sidebar">
 
-    <img
-
-    class="foto-perfil"
-
-    src="<?= !empty($usuario['foto'])
-? $rutaBase.'../profesor/uploads/perfil/'.$usuario['foto']
-: 'https://ui-avatars.com/api/?name='.urlencode($usuario['nombre']).'&background=4f46e5&color=ffffff'
-?>"
-
-    alt="Perfil">
+    <img class="foto-perfil" src="<?= !empty($usuario['foto'])
+        ? $rutaBase . 'profesor/uploads/perfil/' . $usuario['foto']
+        : 'https://ui-avatars.com/api/?name=' . urlencode($usuario['nombre']) . '&background=4f46e5&color=ffffff'
+        ?>" alt="Perfil">
 
     <h4>
 
@@ -197,28 +186,28 @@ $_SERVER['HTTP_HOST'] .
 
     <hr>
 
-  <a href="<?= $rutaBase ?>/profesor/dashboard.php" class="btn-menu">
-    📊 Dashboard
-</a>
+    <a href="<?= $rutaBase ?>profesor/dashboard.php" class="btn-menu">
+        📊 Dashboard
+    </a>
 
-<a href="<?= $rutaBase ?>/profesor/clases/crear.php" class="btn-menu">
-    ➕ Crear Clase
-</a>
+    <a href="<?= $rutaBase ?>profesor/clases/crear.php" class="btn-menu">
+        ➕ Crear Clase
+    </a>
 
-<a href="<?= $rutaBase ?>/profesor/clases/ver.php" class="btn-menu">
-    📚 Mis Clases
-</a>
+    <a href="<?= $rutaBase ?>profesor/clases/ver.php" class="btn-menu">
+        📚 Mis Clases
+    </a>
 
-<a href="<?= $rutaBase ?>/profesor/asistencias/historial.php" class="btn-menu">
-    ✅ Asistencias
-</a>
+    <a href="<?= $rutaBase ?>profesor/asistencias/historial.php" class="btn-menu">
+        ✅ Asistencias
+    </a>
 
-<a href="<?= $rutaBase ?>/profesor/perfil.php" class="btn-menu">
-    👤 Perfil
-</a>
+    <a href="<?= $rutaBase ?>profesor/perfil.php" class="btn-menu">
+        👤 Perfil
+    </a>
 
-<a href="<?= $rutaBase ?>/auth/logout.php" class="btn-menu btn-danger-menu">
-    🚪 Cerrar sesión
-</a>
+    <a href="<?= $rutaBase ?>auth/logout.php" class="btn-menu btn-danger-menu">
+        🚪 Cerrar sesión
+    </a>
 
 </div>
